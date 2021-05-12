@@ -15,10 +15,10 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DeepHug">
   <meta name="keywords" content="">
   
-  <title>Hexo</title>
+  <title>DeepHug Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -180,34 +180,32 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/09/17/Vue.js%20%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/" target="_self">
-          <img src="/img/deep-hug-blog-wallpaper.JPG" srcset="/img/loading.gif" lazyload alt="Vue.js 组件之间的传值">
+        <a href="/2020/11/13/echarts-operation/" target="_self">
+          <img src="/img/echarts.jpg" srcset="/img/loading.gif" lazyload alt="Echarts画图实践">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/09/17/Vue.js%20%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/" target="_self">
-          Vue.js 组件之间的传值
+        <a href="/2020/11/13/echarts-operation/" target="_self">
+          Echarts画图实践
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/09/17/Vue.js%20%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/" target="_self">
+        <a href="/2020/11/13/echarts-operation/" target="_self">
           
           
             
           
-          概述vue中组件之间的传值传值情况主要有以下三种：
+          
+ECharts，一个使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上。最近一直在做大屏数据可视化，用到最多踩坑最多的就是ECharts了。因此记录一下期间利用ECharts画的各种图。
 
-父组件向子组件传值
-子组件向父组件传值
-兄弟组件之间相互传值或者是两个没有关系的组件之间的传值
-
-在开始介绍之前我们先建立3个vue文件，文件名分别为:Parent.vue , Child1.vue , Child2.vue。
-父组件向子组件传值这种情况是三种传值方案中最简单的, 通过在子组件中使用 props就可以实现。
-子组件Child1.
+准备工作
+安装ECharts1npm install echarts --save
+安装vue-count-to1npm install vue-count-to
+全局引入组
         </a>
       </p>
 
@@ -215,8 +213,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-17 21:06" pubdate>
-              2020-09-17
+            <time datetime="2020-11-13 15:52" pubdate>
+              2020-11-13
             </time>
           </div>
         
@@ -232,7 +230,174 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Javascript/">Javascript</a>
+              <a href="/tags/Echarts/">Echarts</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/11/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6%E4%B9%A0React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" target="_self">
+          <img src="/img/react-life.jpg" srcset="/img/loading.gif" lazyload alt="从零开始一步一步学习React生命周期">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6%E4%B9%A0React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" target="_self">
+          从零开始一步一步学习React生命周期
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AD%A6%E4%B9%A0React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" target="_self">
+          
+          
+            
+          
+          在学习ReactJs Hooks的时候，对其中的几个副作用函数一直理不清，总觉得是由于Reactjs的基本知识还不够熟悉，特别是对于ReactJs的生命周期部分。因此本文主要是对ReactJs的生命周期进行一个学习记录，改文的代码，完全是从零开始，一步一步的手写测试。只有这样，通过比较和测试，才能更深一层次地对ReactJs的生命周期有所了解，写起代码才能得心应手，发现bug才能又快又准，优化性能
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-10 21:06" pubdate>
+              2020-11-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/react/">react</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/11/04/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E6%AD%A3%E5%88%99%E6%A0%A1%E9%AA%8C%E7%B1%BB%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_self">
+          <img src="/img/reg.jpg" srcset="/img/loading.gif" lazyload alt="关于js中正则校验类配置和使用">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/04/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E6%AD%A3%E5%88%99%E6%A0%A1%E9%AA%8C%E7%B1%BB%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_self">
+          关于js中正则校验类配置和使用
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/04/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E6%AD%A3%E5%88%99%E6%A0%A1%E9%AA%8C%E7%B1%BB%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_self">
+          
+          
+            
+          
+          校验类regexp.js12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-04 21:06" pubdate>
+              2020-11-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AD%A3%E5%88%99/">正则</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/10/29/%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%9E%B6%E6%9E%84%E4%B9%8Bvuex/" target="_self">
+          <img src="/img/deep-hug-blog-wallpaper.JPG" srcset="/img/loading.gif" lazyload alt="集中式状态管理架构之vuex">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/29/%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%9E%B6%E6%9E%84%E4%B9%8Bvuex/" target="_self">
+          集中式状态管理架构之vuex
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/29/%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%9E%B6%E6%9E%84%E4%B9%8Bvuex/" target="_self">
+          
+          
+            
+          
+          简介
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。确实是如此——如果您的应用够简单，您最好不要使用 Vuex。一个简单的 store 模式就足够您所需了。但是，如果您需要构建一个中大型单页应用，您很可能会考虑如何更好地在组件
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-29 21:06" pubdate>
+              2020-10-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
             
               <a href="/tags/vue/">vue</a>
             
@@ -246,27 +411,26 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/09/14/vue.use()%E5%88%86%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_self">
-          <img src="/img/deep-hug-blog-wallpaper.JPG" srcset="/img/loading.gif" lazyload alt="vue.use()分析与使用">
+        <a href="/2020/10/28/%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
+          <img src="/img/deep-hug-blog-wallpaper.JPG" srcset="/img/loading.gif" lazyload alt="关于js中正则校验类配置和使用">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/09/14/vue.use()%E5%88%86%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_self">
-          vue.use()分析与使用
+        <a href="/2020/10/28/%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
+          关于js中正则校验类配置和使用
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/09/14/vue.use()%E5%88%86%E6%9E%90%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_self">
+        <a href="/2020/10/28/%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F/" target="_self">
           
           
             
           
-          在使用Vue.js的时候，我们经常会用到vue.use()，比如我们在引入第三方UI库vant时候，会使用到Vue.use(Loading)，或者 Router 和 Vuex 也需要用到，那vue.use()到底是什么？官网给出的解释是: 通过全局方法 Vue.use() 使用插件；接下来分析 一下Vue.use() 的源码和尝试注册一个全局Loading,Toast和Dialog组合方法。
-前言
+          1.router-link1234567891011121314151617181920212223242526272829// 1. 不带参数 &lt;router-link :to=&quot;&#123;name:&#x27;home&#x27;&#125;&quot;&gt; &lt;/router-link&gt;&lt;router-link :to=&quot;&#123;path:
         </a>
       </p>
 
@@ -274,8 +438,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-14 21:06" pubdate>
-              2020-09-14
+            <time datetime="2020-10-28 21:06" pubdate>
+              2020-10-28
             </time>
           </div>
         
@@ -303,27 +467,31 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/09/13/Vue%E9%BB%98%E8%AE%A4%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AE/" target="_self">
-          <img src="/img/deep-hug-blog-wallpaper.JPG" srcset="/img/loading.gif" lazyload alt="Vue默认图片设置">
+        <a href="/2020/10/26/%E5%89%8D%E7%AB%AF%E7%A2%B0%E5%88%B0%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="/img/deep-hug-blog-wallpaper.JPG" srcset="/img/loading.gif" lazyload alt="前端碰到的兼容性问题（不定时更新）">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/09/13/Vue%E9%BB%98%E8%AE%A4%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AE/" target="_self">
-          Vue默认图片设置
+        <a href="/2020/10/26/%E5%89%8D%E7%AB%AF%E7%A2%B0%E5%88%B0%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/" target="_self">
+          前端碰到的兼容性问题（不定时更新）
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/09/13/Vue%E9%BB%98%E8%AE%A4%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AE/" target="_self">
+        <a href="/2020/10/26/%E5%89%8D%E7%AB%AF%E7%A2%B0%E5%88%B0%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/" target="_self">
           
           
             
           
-          在项目中经常会遇到一个关于图片的问题：如何设置默认图片？真实场景：获取某个区的一级医院列表，当从后端接口拿到数据后，里面每个医院对象里面都会有一个hospitalPicture字段，该字段可能有值可能无值，又可能是有效值或无效值，如何在不影响页面显示上配置好默认图片？
-需求从后端接口取得图片地址，如果有图片地址，则正常显示该图片地址，反之，则显示默认图片地址；其次，虽然有图片地址，但是该地址报错即
+          前端碰到的兼容性问题总结
+IOS new Date()参数参数带时分秒不兼容问题问题：
+1var date =new Date();
+上面这段代码是获取当前日期，这段代码在Firefox、Chrome、Safari浏览器中都可以运行。但是如果我想根据字符串获取日期，问题就来了。看下面代码。
+1var date =new Date(&quot;2020-05-31 08:00:00&quot;);
+
         </a>
       </p>
 
@@ -331,8 +499,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-13 21:06" pubdate>
-              2020-09-13
+            <time datetime="2020-10-26 21:06" pubdate>
+              2020-10-26
             </time>
           </div>
         
@@ -348,64 +516,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/vue/">vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/09/12/Vue%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" target="_self">
-          <img src="/img/deep-hug-blog-wallpaper.JPG" srcset="/img/loading.gif" lazyload alt="Vue数据双向绑定实现原理">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/09/12/Vue%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" target="_self">
-          Vue数据双向绑定实现原理
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/09/12/Vue%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" target="_self">
-          
-          
-            
-          
-          Vue数据双向绑定（即数据响应式），是利用了Object.defineProperty()这个方法重新定义了对象获取属性值get和设置属性值set的操作来实现的。
-index.html123456789101112131415161718192021222324252627&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&g
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-09-12 21:06" pubdate>
-              2020-09-12
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/vue/">vue</a>
+              <a href="/tags/%E5%85%BC%E5%AE%B9/">兼容</a>
             
           </div>
         
@@ -417,7 +528,7 @@ index.html123456789101112131415161718192021222324252627&lt;!DOCTYPE html&gt;&lt;
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
