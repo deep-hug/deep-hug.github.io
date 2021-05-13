@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>解决PC端浏览器记住密码问题和H5端输入框被键盘遮罩问题</title>
+    <link href="/2021/05/13/js-input-password-useCaution/"/>
+    <url>/2021/05/13/js-input-password-useCaution/</url>
+    
+    <content type="html"><![CDATA[<h1 id="PC端，浏览器为什么会填充账号和密码"><a href="#PC端，浏览器为什么会填充账号和密码" class="headerlink" title="PC端，浏览器为什么会填充账号和密码"></a>PC端，浏览器为什么会填充账号和密码</h1><blockquote><p>现在浏览器的功能日益强大，如果浏览器在一个网页地址记住了账号密码，当你再次这个网页的时候，就会自动把记住的账号和密码填充到输入框里面。</p></blockquote><h1 id="H5端，为什么弹出的键盘会把输入框给遮罩住"><a href="#H5端，为什么弹出的键盘会把输入框给遮罩住" class="headerlink" title="H5端，为什么弹出的键盘会把输入框给遮罩住"></a>H5端，为什么弹出的键盘会把输入框给遮罩住</h1><blockquote><p>这个问题是一个值得讨论的问题。我的设备是<strong>小米9手机</strong>,我遇到的问题是，当<strong>input</strong>的type为<strong>text</strong>的时候，点击到输入框，输入框聚焦，键盘弹出，将页面整体顶上去。这个操作是没有任何问题的。当<strong>input</strong>的type为<strong>password</strong>的时候，点击输入框，输入框聚焦，键盘弹出，然后页面没有整体顶上去，而是被弹出的键盘给覆盖着了。显然这个时候并不是我们想要的结果。我更换了我同事的设备<strong>华为P30 Pro</strong>，他手机的表现和我的手机是一样的。<strong>text</strong>没有问题，<strong>password</strong>就有问题。</p></blockquote><h1 id="那我们如果去解决这两个问题呢？"><a href="#那我们如果去解决这两个问题呢？" class="headerlink" title="那我们如果去解决这两个问题呢？"></a>那我们如果去解决这两个问题呢？</h1><blockquote><p>这两个问题，在网上有好多好多的处理办法，我也尝试了好多，但无一都是以失败而告终。</p></blockquote><blockquote><p>多次处理无果，让我很是失望。<strong>我突然想起来了什么，就是为什么密码输入框有问题，而文本输入框没有问题，那我是不是可以在文本输入框上面做点什么东西。</strong>我就继续在网络上寻找我想要的东西。我找到了，我可以使用一个<strong>文字样式</strong>，将文本输入框里面输入的文本内容设置为和密码输入框一样的***的效果。</p></blockquote><h2 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h2><blockquote><p>需要把密码输入框改为文本输入框，然后添加样式就可以完美解决，PC端和H5端我们遇到的问题了。</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;password-text&quot;</span> placeholder=<span class="hljs-string">&quot;请输入密码&quot;</span> /&gt;<br>@font-face &#123;<br>    font-family: <span class="hljs-string">&#x27;password&#x27;</span>;<span class="hljs-comment">//自定义字体名称</span><br>    src: url(<span class="hljs-string">&#x27;/PasswordEntry.ttf&#x27;</span>)<br>&#125;<br>.password-text &#123;<br>    font-family: <span class="hljs-string">&#x27;password&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JS VUE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>new Date()的使用和注意</title>
     <link href="/2021/05/12/new-Date-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B3%A8%E6%84%8F/"/>
     <url>/2021/05/12/new-Date-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B3%A8%E6%84%8F/</url>
