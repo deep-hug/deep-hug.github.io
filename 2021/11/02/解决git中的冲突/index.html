@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="PC端，浏览器记住账号密码，编辑的时候会把记住的账号和密码自己填充到输入框里面；H5端，使用password输入框，在安卓(android)设备上面，弹出的键盘会把input输入框给遮罩。">
+  <meta name="description" content="使用git仓库，同一分支提交代码时可能会遇到冲突，不同分支合并到同一分支时可能也会遇到冲突，就这两种情况，来解决一下其冲突。">
   <meta name="author" content="DeepHug">
   <meta name="keywords" content="">
   
-  <title>解决PC端浏览器记住密码问题和H5端输入框被键盘遮罩问题 - DeepHug&#39;s Blog</title>
+  <title>解决git中的冲突 - DeepHug&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="解决PC端浏览器记住密码问题和H5端输入框被键盘遮罩问题">
+            <span class="h2" id="subtitle" title="解决git中的冲突">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-13 19:19" pubdate>
-        2021年5月13日 晚上
+      <time datetime="2021-11-02 11:16" pubdate>
+        2021年11月2日 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      543 字
+      486 字
     </span>
   
 
@@ -225,25 +225,62 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">解决PC端浏览器记住密码问题和H5端输入框被键盘遮罩问题</h1>
+            <h1 style="display: none">解决git中的冲突</h1>
             
             <div class="markdown-body">
-              <h1 id="PC端，浏览器为什么会填充账号和密码"><a href="#PC端，浏览器为什么会填充账号和密码" class="headerlink" title="PC端，浏览器为什么会填充账号和密码"></a>PC端，浏览器为什么会填充账号和密码</h1><blockquote>
-<p>现在浏览器的功能日益强大，如果浏览器在一个网页地址记住了账号密码，当你再次这个网页的时候，就会自动把记住的账号和密码填充到输入框里面。</p>
+              <h2 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h2><h3 id="同一分支，在多人使用的时候，产生冲突"><a href="#同一分支，在多人使用的时候，产生冲突" class="headerlink" title="同一分支，在多人使用的时候，产生冲突"></a>同一分支，在多人使用的时候，产生冲突</h3><blockquote>
+<p>每次提交代码前，我们都会<code>git pull</code>拉取一下新的代码，当我们看到一下这种情况的时候，本次修改的代码和别人有冲突。</p>
 </blockquote>
-<h1 id="H5端，为什么弹出的键盘会把输入框给遮罩住"><a href="#H5端，为什么弹出的键盘会把输入框给遮罩住" class="headerlink" title="H5端，为什么弹出的键盘会把输入框给遮罩住"></a>H5端，为什么弹出的键盘会把输入框给遮罩住</h1><blockquote>
-<p>这个问题是一个值得讨论的问题。我的设备是<strong>小米9手机</strong>,我遇到的问题是，当<strong>input</strong>的type为<strong>text</strong>的时候，点击到输入框，输入框聚焦，键盘弹出，将页面整体顶上去。这个操作是没有任何问题的。当<strong>input</strong>的type为<strong>password</strong>的时候，点击输入框，输入框聚焦，键盘弹出，然后页面没有整体顶上去，而是被弹出的键盘给覆盖着了。显然这个时候并不是我们想要的结果。我更换了我同事的设备<strong>华为P30 Pro</strong>，他手机的表现和我的手机是一样的。<strong>text</strong>没有问题，<strong>password</strong>就有问题。</p>
-</blockquote>
-<h1 id="那我们如果去解决这两个问题呢？"><a href="#那我们如果去解决这两个问题呢？" class="headerlink" title="那我们如果去解决这两个问题呢？"></a>那我们如果去解决这两个问题呢？</h1><blockquote>
-<p>这两个问题，在网上有好多好多的处理办法，我也尝试了好多，但无一都是以失败而告终。</p>
-</blockquote>
+<div>
+    <img src="chongtu-1.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<h3 id="那么我们应该怎么做呢？"><a href="#那么我们应该怎么做呢？" class="headerlink" title="那么我们应该怎么做呢？"></a>那么我们应该怎么做呢？</h3><p>首先我们正常的去暂存文件和提交更改。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">git add .<br>git commit -m <span class="hljs-string">&#x27;本次的修改&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>执行完这两行命令之后，要执行<code>git pull</code>命令，此时我的<code>vs code</code>会变成这样。</p>
+<div>
+    <img src="chongtu-2.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>此时我们去看下面这张图片上的四个操作</p>
+<div>
+    <img src="chongtu-3.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>第一个是使用当前修改，第二个是使用传入的修改，第三个是两个都保存，第四个是比较两者的更改。根据需要，保留对应的修改。最后一定要记得<code>ctrl + s</code>保存下来。然后再进行暂存和提交更改，最后再推送远程分支。</p>
+<div>
+    <img src="chongtu-4.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>到此冲突解决完毕。</p>
+<h2 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h2><h3 id="多个分支在合同一个分支时产生冲突"><a href="#多个分支在合同一个分支时产生冲突" class="headerlink" title="多个分支在合同一个分支时产生冲突"></a>多个分支在合同一个分支时产生冲突</h3><p>分支1(feature/cx1)和分支2(feature/cx2)开发完毕，都要合到master分支。</p>
+<p>分支1的操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">git pull<br>git add .<br>git commit -m <span class="hljs-string">&#x27;本次的修改&#x27;</span><br>git push<br>git checkout master<br>git pull<br>git merge feature/cx1<br>git push<br></code></pre></td></tr></table></figure>
+
 <blockquote>
-<p>多次处理无果，让我很是失望。<strong>我突然想起来了什么，就是为什么密码输入框有问题，而文本输入框没有问题，那我是不是可以在文本输入框上面做点什么东西。</strong>我就继续在网络上寻找我想要的东西。我找到了，我可以使用一个<strong>文字样式</strong>，将文本输入框里面输入的文本内容设置为和密码输入框一样的***的效果。</p>
+<p>分支1进行正常的操作即可。</p>
 </blockquote>
-<h2 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h2><blockquote>
-<p>需要把密码输入框改为文本输入框，然后添加样式就可以完美解决，PC端和H5端我们遇到的问题了。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;password-text&quot;</span> placeholder=<span class="hljs-string">&quot;请输入密码&quot;</span> /&gt;<br>@font-face &#123;<br>    font-family: <span class="hljs-string">&#x27;password&#x27;</span>;<span class="hljs-comment">//自定义字体名称</span><br>    src: url(<span class="hljs-string">&#x27;/PasswordEntry.ttf&#x27;</span>)<br>&#125;<br>.password-text &#123;<br>    font-family: <span class="hljs-string">&#x27;password&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>分支2的操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">git pull<br>git add .<br>git commit -m <span class="hljs-string">&#x27;开始&#x27;</span><br>git push<br>git chekcout master<br>git pull<br></code></pre></td></tr></table></figure>
+
+<p><strong><code>git merge feature/cx2</code>在执行这行代码之后，我们的<code>vscode</code>会变成这样。</strong></p>
+<div>
+    <img src="chongtu-5.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>此时我们去看下面这张图片上的四个操作</p>
+<div>
+    <img src="chongtu-3.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>第一个是使用当前修改，第二个是使用传入的修改，第三个是两个都保存，第四个是比较两者的更改。根据需要，保留对应的修改。最后一定要记得<code>ctrl + s</code>保存下来。然后再进行暂存和提交更改，最后再推送远程分支。</p>
+<div>
+    <img src="chongtu-4.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>到此冲突解决完毕。</p>
+
             </div>
             <hr>
             <div>
@@ -260,7 +297,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/JS-VUE/">JS VUE</a>
+                      <a class="hover-with-bg" href="/tags/GIT/">GIT</a>
                     
                   </div>
                 
@@ -277,18 +314,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/02/%E8%A7%A3%E5%86%B3git%E4%B8%AD%E7%9A%84%E5%86%B2%E7%AA%81/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解决git中的冲突</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/12/new-Date-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E6%B3%A8%E6%84%8F/">
-                        <span class="hidden-mobile">new Date()的使用和注意</span>
+                      <a href="/2021/05/13/js-input-password-useCaution/">
+                        <span class="hidden-mobile">解决PC端浏览器记住密码问题和H5端输入框被键盘遮罩问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
