@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>关于H5移动端定位不准确问题</title>
+    <link href="/2021/11/10/%E5%85%B3%E4%BA%8EH5%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%87%86%E7%A1%AE%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/11/10/%E5%85%B3%E4%BA%8EH5%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%87%86%E7%A1%AE%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p><strong>我们在进行移动端H5页面开发的时候，如果使用了定位获取当前的经纬度，时常会出现定位不准确的问题，乃至于访问服务器上面的H5页面的时候也是不准确的。</strong></p><h2 id="本地开发时"><a href="#本地开发时" class="headerlink" title="本地开发时"></a>本地开发时</h2><blockquote><p>我们在进行本地开发的时候，环境大多是<code>localhost</code>，这个域名下我们获取经纬度的位置信息是不准确的</p></blockquote><h2 id="发布生产以后，安卓和ios手机表现在不同域名下表现也不一样"><a href="#发布生产以后，安卓和ios手机表现在不同域名下表现也不一样" class="headerlink" title="发布生产以后，安卓和ios手机表现在不同域名下表现也不一样"></a>发布生产以后，安卓和ios手机表现在不同域名下表现也不一样</h2><table><thead><tr><th>手机操作系统</th><th>http</th><th>https</th></tr></thead><tbody><tr><td>Android</td><td>否</td><td>是</td></tr><tr><td>iOS</td><td>是</td><td>是</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>H5 定位</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>解决git中的冲突</title>
     <link href="/2021/11/02/%E8%A7%A3%E5%86%B3git%E4%B8%AD%E7%9A%84%E5%86%B2%E7%AA%81/"/>
     <url>/2021/11/02/%E8%A7%A3%E5%86%B3git%E4%B8%AD%E7%9A%84%E5%86%B2%E7%AA%81/</url>
