@@ -14,8 +14,8 @@ tags:
 - js
 
 ```js
+let defaultImg = require('@assets/image/hospitalOrder/icon_hospital.png');
 <script>
-    import defaultImg from '@assets/image/hospitalOrder/icon_hospital.png';
     export default {
         data() {
             return {
