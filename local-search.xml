@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>ios输入框必须重压或长按才能唤起软键盘</title>
+    <link href="/2021/12/28/ios%E8%BE%93%E5%85%A5%E6%A1%86%E5%BF%85%E9%A1%BB%E9%87%8D%E5%8E%8B%E6%88%96%E9%95%BF%E6%8C%89%E6%89%8D%E8%83%BD%E5%94%A4%E8%B5%B7%E8%BD%AF%E9%94%AE%E7%9B%98/"/>
+    <url>/2021/12/28/ios%E8%BE%93%E5%85%A5%E6%A1%86%E5%BF%85%E9%A1%BB%E9%87%8D%E5%8E%8B%E6%88%96%E9%95%BF%E6%8C%89%E6%89%8D%E8%83%BD%E5%94%A4%E8%B5%B7%E8%BD%AF%E9%94%AE%E7%9B%98/</url>
+    
+    <content type="html"><![CDATA[<h3 id="为什么移动端点击事件要加300ms延迟呢？"><a href="#为什么移动端点击事件要加300ms延迟呢？" class="headerlink" title="为什么移动端点击事件要加300ms延迟呢？"></a>为什么移动端点击事件要加300ms延迟呢？</h3><p>早在 2007 年初，苹果公司在发布首款 iPhone 前夕，遇到一个问题：当时的网站都是为大屏幕设备所设计的。于是苹果的工程师们做了一些约定，应对 iPhone 这种小屏幕浏览桌面端站点的问题。</p><div>    <img src="ios.png" style="display: block;margin: 0 auto;" /></div><p>这当中最出名的，当属双击缩放(double tap to zoom)，这也是会有上述 300 毫秒延迟的主要原因。</p><p>双击缩放，顾名思义，即用手指在屏幕上快速点击两次，iOS 自带的 Safari 浏览器会将网页缩放至原始比例。 那么这和 300 毫秒延迟有什么联系呢？</p><div>    <img src="1.png" style="display: block;margin: 0 auto;" /></div><p>假定这么一个场景： 用户在 iOS Safari 里边点击了一个链接。由于用户可以进行双击缩放或者双击滚动的操作，当用户一次点击屏幕之后，浏览器并不能立刻判断用户是确实要打开这个链接，还是想要进行双击操作。因此，iOS Safari 就等待 300 毫秒，以判断用户是否再次点击了屏幕。 鉴于iPhone的成功，其他移动浏览器都复制了 iPhone Safari 浏览器的多数约定，包括双击缩放，几乎现在所有的移动端浏览器都有这个功能。那时人们刚刚接触移动端的页面，不会在意这个300ms的延时问题，可是如今移动端如雨后春笋，用户对体验的要求也更高，这300ms带来的卡顿慢慢变得让人难以接受。</p><div>    <img src="event.png" style="display: block;margin: 0 auto;" /></div><h3 id="那么如何解决300ms延迟问题呢？"><a href="#那么如何解决300ms延迟问题呢？" class="headerlink" title="那么如何解决300ms延迟问题呢？"></a>那么如何解决300ms延迟问题呢？</h3><p>我们就推荐一种最有效、最方便的解决方案，大家应该都用过这个方法，那就是FastClick.js。</p><div>    <img src="FastClick.png" style="display: block;margin: 0 auto;" /></div><p>FastClick 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。FastClick的实现原理是在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后的click事件阻止掉。</p><h4 id="如何使用FastClick"><a href="#如何使用FastClick" class="headerlink" title="如何使用FastClick"></a>如何使用FastClick</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install fastclick -S<br></code></pre></td></tr></table></figure><p>如何你是<strong>vue</strong>项目可以在main.js里面直接引入，当然这样是全局的，如果你需要某个页面用到，那就单个页面引入。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//引入</span><br><span class="hljs-keyword">import</span> fastClick <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;fastclick&#x27;</span><br><span class="hljs-comment">//初始化FastClick实例。在页面的DOM文档加载完成后</span><br>fastClick.attach(<span class="hljs-built_in">document</span>.body)<br></code></pre></td></tr></table></figure><p>如果你用过FastClick在移动端，就会发现有一个体验很不好的问题，某些ios上，点击输入框想唤启软键盘，触点不是很灵敏，必须重压或长按才能成功唤启，快速点击是不会唤启软键盘的。</p><div>    <img src="3.png" style="display: block;margin: 0 auto;" /></div><h3 id="如何解决ios-input框唤启软键盘不灵敏问题？"><a href="#如何解决ios-input框唤启软键盘不灵敏问题？" class="headerlink" title="如何解决ios input框唤启软键盘不灵敏问题？"></a>如何解决ios input框唤启软键盘不灵敏问题？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;EventTarget|Element&#125;</span> <span class="hljs-variable">targetElement</span></span></span><br><span class="hljs-comment"> */</span><br>FastClick.prototype.focus = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">targetElement</span>) </span>&#123;<br><span class="hljs-keyword">var</span> length;<br><span class="hljs-comment">// Issue #160: on iOS 7, some input elements (e.g. date datetime month) throw a vague TypeError on setSelectionRange. These elements don&#x27;t have an integer value for the selectionStart and selectionEnd properties, but unfortunately that can&#x27;t be used for detection because accessing the properties also throws a TypeError. Just check the type instead. Filed as Apple bug #15122724.</span><br>    <span class="hljs-keyword">if</span> (deviceIsIOS &amp;&amp; targetElement.setSelectionRange &amp;&amp; targetElement.type.indexOf(<span class="hljs-string">&#x27;date&#x27;</span>) !== <span class="hljs-number">0</span> &amp;&amp; targetElement.type !== <span class="hljs-string">&#x27;time&#x27;</span> &amp;&amp; targetElement.type !== <span class="hljs-string">&#x27;month&#x27;</span> &amp;&amp; targetElement.type !== <span class="hljs-string">&#x27;email&#x27;</span>) &#123;<br>        length = targetElement.value.length;<br>        targetElement.focus();<span class="hljs-comment">// 加入这一句话</span><br>        targetElement.setSelectionRange(length, length);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        targetElement.focus();<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>你可以直接去node_module里找到fastClick文件修改focus方法，但是不建议这样做。如果以后npm install，就会被覆盖。</p><div>    <img src="4.png" style="display: block;margin: 0 auto;" /></div><p>建议你在引用fastclick的地方，重写focus方法。如vue项目，你可以在main.js文件里面，引入fastclick模块后，重写focus方法。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>IOS 键盘 软键盘 输入框</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Vue不太会用的小知识</title>
     <link href="/2021/12/21/Vue%E4%B8%8D%E5%A4%AA%E4%BC%9A%E7%94%A8%E7%9A%84%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     <url>/2021/12/21/Vue%E4%B8%8D%E5%A4%AA%E4%BC%9A%E7%94%A8%E7%9A%84%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
