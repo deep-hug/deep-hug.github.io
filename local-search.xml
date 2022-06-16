@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>flex的技巧和进阶用法</title>
+    <link href="/2022/05/06/flex%E7%9A%84%E6%8A%80%E5%B7%A7%E5%92%8C%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/"/>
+    <url>/2022/05/06/flex%E7%9A%84%E6%8A%80%E5%B7%A7%E5%92%8C%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h3 id="子元素继承父元素的高度"><a href="#子元素继承父元素的高度" class="headerlink" title="子元素继承父元素的高度"></a>子元素继承父元素的高度</h3><h4 id="课程表需求，手写表格的时候，需要让同一层的td具有相同的高度。就像下面的图片一样，如果我们直接使用-table-标签去做则不会有这个问题，如果用ul-li这样去写就会一个无法设置子元素同一高度的问题。"><a href="#课程表需求，手写表格的时候，需要让同一层的td具有相同的高度。就像下面的图片一样，如果我们直接使用-table-标签去做则不会有这个问题，如果用ul-li这样去写就会一个无法设置子元素同一高度的问题。" class="headerlink" title="课程表需求，手写表格的时候，需要让同一层的td具有相同的高度。就像下面的图片一样，如果我们直接使用 table 标签去做则不会有这个问题，如果用ul li这样去写就会一个无法设置子元素同一高度的问题。"></a>课程表需求，手写表格的时候，需要让同一层的td具有相同的高度。就像下面的图片一样，如果我们直接使用 table 标签去做则不会有这个问题，如果用ul li这样去写就会一个无法设置子元素同一高度的问题。</h4><div>    <img src="img2.png" /></div><blockquote><p>只要父元素设置了 <strong>display: flex</strong> 同时 <strong>ailgn-items</strong> 属性值默认，那么子元素就会继承父元素的高度。</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;box &quot;</span>&gt;<br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;d1&quot;</span>&gt;</span></span><br><span class="xml">        我是d1我没有设置高度</span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;d2&quot;</span>&gt;</span></span><br><span class="xml">        我的d2我的高度有200px我的d2我的高度有200px我的d2我的高度有200px</span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/div&gt;<br><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span></span><br><span class="css"><span class="xml">    <span class="hljs-selector-class">.box</span> &#123;</span></span><br><span class="css"><span class="xml">        <span class="hljs-attribute">display</span>: flex;</span></span><br><span class="css"><span class="xml">    &#125;</span></span><br><span class="css"><span class="xml">    <span class="hljs-selector-class">.d2</span> &#123;</span></span><br><span class="css"><span class="xml">        <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;</span></span><br><span class="css"><span class="xml">        <span class="hljs-attribute">background</span>: peru;</span></span><br><span class="css"><span class="xml">    &#125;</span></span><br><span class="css"><span class="xml">    <span class="hljs-selector-class">.d1</span> &#123;</span></span><br><span class="css"><span class="xml">        <span class="hljs-attribute">width</span>:<span class="hljs-number">200px</span>;</span></span><br><span class="css"><span class="xml">        <span class="hljs-attribute">background</span>: pink;</span></span><br><span class="css"><span class="xml">    &#125;</span></span><br><span class="css"><span class="xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br></code></pre></td></tr></table></figure><div>    <img src="img1.png" /></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Fluid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ios输入框必须重压或长按才能唤起软键盘</title>
     <link href="/2021/12/28/ios%E8%BE%93%E5%85%A5%E6%A1%86%E5%BF%85%E9%A1%BB%E9%87%8D%E5%8E%8B%E6%88%96%E9%95%BF%E6%8C%89%E6%89%8D%E8%83%BD%E5%94%A4%E8%B5%B7%E8%BD%AF%E9%94%AE%E7%9B%98/"/>
     <url>/2021/12/28/ios%E8%BE%93%E5%85%A5%E6%A1%86%E5%BF%85%E9%A1%BB%E9%87%8D%E5%8E%8B%E6%88%96%E9%95%BF%E6%8C%89%E6%89%8D%E8%83%BD%E5%94%A4%E8%B5%B7%E8%BD%AF%E9%94%AE%E7%9B%98/</url>
