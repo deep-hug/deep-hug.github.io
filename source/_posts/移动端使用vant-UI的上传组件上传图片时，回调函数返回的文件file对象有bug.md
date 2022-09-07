@@ -1,7 +1,7 @@
 ---
 title: 移动端使用vant UI的上传组件上传图片时，回调函数返回的文件file对象有bug
 author: DeepHug
-index_img: /img/deep-hug-blog-wallpaper.JPG
+index_img: /img/wallhaven-e7zogk.jpg
 category: 技术
 tags:
   - H5 Vue Vant

@@ -1,7 +1,7 @@
 ---
 title: 解决PC端浏览器记住密码问题和H5端输入框被键盘遮罩问题
 author: DeepHug
-index_img: /img/deep-hug-blog-wallpaper.JPG
+index_img: /img/wallhaven-e7zogk.jpg
 category: 技术
 tags:
   - JS VUE
