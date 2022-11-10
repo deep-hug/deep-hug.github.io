@@ -46,6 +46,24 @@ Vue, history路由
 
 在我的项目里面会有一些页面传参，有时候会传递 json 字符串，项目规定不可明文传输数据，所以又把 json字符串 ，通过base64.encode了一下，就导致了在url最后面会有连续两个 **==** ，然后这个页面的分享就失效了，直接 **debug的时候就false，报签名不通过** 。解决办法就是再将其 encodeURIComponent 一下，然后进行页面跳转
 
+#### 2022-11-10补充
+
+特殊字符的URL编码方式
+
+| 特殊符号 | 编码后的字符 |
+| -- | -- |
+| + |	%2B |
+| 空格 |	%20 |
+| / |	%2F |
+| ? |	%3F |
+| % |	%25 |
+| # |	%23 | 
+| & |	%26 |
+| = |	%3D |
+
+
+**如果URL中有这些特殊字符是不允许的，需要将参数 decodeURIComponent 一下**
+
 **巨坑巨坑巨坑，这个坑绝对是微信的巨坑，这个bug我测试了许久才测试出来**
 
 ### 签名
@@ -334,10 +352,30 @@ export default {
     mounted(){
         this.$nextTick(() => {
 
+            // 当前页面只是一个中转页面，分享的 url 是没有 open.weixin 的，此页面是为了拼接全地址（open.weixin）后再跳转到对应的页面。
+            // 2022-10-12 需求，在健康徐汇所有的页面分享后的地址要全部跳转到 home 页面，所以当前版本比较简单，只做了 te 和 pe 两种地址的跳转。
+
+            // 处理 ios 兼容问题，无论使用 href、assign、 replace ， Android的表现为：从home页面物理返回之后还是回会到当前页面。 Android解决办法：跳转的时候设置session，created的时候如果session的值为true，则使用微信的api关闭当前浏览器窗口。
+            // ios的表现为：home页面物理返回后不会触发生命周期。ios解决办法：需要 监听页面切换到 ‘前台’ 的事件，然后使用微信的api关闭当前浏览器窗口。
+
+            // ios解决办法
+            if (isIos()) {
+                document.addEventListener('visibilitychange', this.visibilitychange, false);
+            }
+            // Android解决办法
+            if (storage.getOnceLoadOpenWeiXin()) {
+                setTimeout(() => {
+                    window.WeixinJSBridge && WeixinJSBridge.call('closeWindow');
+                }, 200);
+                return;
+            };
+
             let targetPath = this.$tools.getParameterByName('targetPath');
             console.log(targetPath, 'targetPath--targetPath');
             // 互联网医院分享来源，需要先判断是否实名，如果实名跳转到徐汇互联网医院
             if (targetPath == 'hospitalH5') {
+                // Android跳转前设置session
+                storage.setOnceLoadOpenWeiXin('true');
                 switch (PUBLIC_CODE) {
                     case '2':
                         window.location.replace(goOpenWeixin('/xuhuiH5/homeBlank?sourceFrom=2'));
@@ -357,23 +395,7 @@ export default {
                 }
                 return;
             }
-            // 当前页面只是一个中转页面，分享的 url 是没有 open.weixin 的，此页面是为了拼接全地址（open.weixin）后再跳转到对应的页面。
-            // 2022-10-12 需求，在健康徐汇所有的页面分享后的地址要全部跳转到 home 页面，所以当前版本比较简单，只做了 te 和 pe 两种地址的跳转。
-
-            // 处理 ios 兼容问题，无论使用 href、assign、 replace ， Android的表现为：从home页面物理返回之后还是回会到当前页面。 Android解决办法：跳转的时候设置session，created的时候如果session的值为true，则使用微信的api关闭当前浏览器窗口。
-            // ios的表现为：home页面物理返回后不会触发生命周期。ios解决办法：需要 监听页面切换到 ‘前台’ 的事件，然后使用微信的api关闭当前浏览器窗口。
-
-            // ios解决办法
-            if (isIos()) {
-                document.addEventListener('visibilitychange', this.visibilitychange, false);
-            }
-            // Android解决办法
-            if (storage.getOnceLoadOpenWeiXin()) {
-                setTimeout(() => {
-                    window.WeixinJSBridge && WeixinJSBridge.call('closeWindow');
-                }, 200);
-                return;
-            };
+            
             let peURL = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8ea774edbad0cf5b&redirect_uri=https%3A%2F%2Fjkxh.xuhuiheart.com%2FxuhuiH5%2Fhome&response_type=code&scope=snsapi_userinfo&state=310104000000#wechat_redirect';
             let teURL = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7954261f30ad20b0&redirect_uri=http%3A%2F%2F10.1.93.110%3A82%2FxuhuiH5%2Fhome&response_type=code&scope=snsapi_userinfo&state=310104000000#wechat_redirect';
             // Android跳转前设置session
