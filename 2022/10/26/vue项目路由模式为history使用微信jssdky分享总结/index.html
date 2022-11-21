@@ -232,6 +232,11 @@
 <p>前端小菜鸟，因为项目要对接微信的jssdk，每回遇到微信分享都是一个坑，项目使用Vue开发，采用history的路由模式，对接就需要签名认证，但是无奈安卓和IOS各有各的坑，最后终于解决了，现将解决的过程分享一下。</p>
 </blockquote>
 <h2 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a>闲话</h2><p>公司有个需求要做微信分享，而且是全局的分享（每个页面都要有分享功能）功能。为了以后能方便点，就封装了一下。 <strong>不是懒不是懒不是懒！！！重要的事情说三遍！！！</strong></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><div>
+    <img src="jssdk使用时在微信后台的配置.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+
 <h2 id="技术要点"><a href="#技术要点" class="headerlink" title="技术要点"></a>技术要点</h2><p>Vue, history路由</p>
 <h2 id="常见问题及说明"><a href="#常见问题及说明" class="headerlink" title="常见问题及说明"></a>常见问题及说明</h2><h3 id="debug模式下报false"><a href="#debug模式下报false" class="headerlink" title="debug模式下报false"></a>debug模式下报false</h3><p>这个没得说，就是调用wx.config方法的参数错误造成的，请确认以下事项：</p>
 <p>是否成功绑定了域名（域名校验文件要能被访问到）</p>
