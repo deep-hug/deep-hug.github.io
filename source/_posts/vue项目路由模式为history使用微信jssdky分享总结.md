@@ -265,26 +265,26 @@ Vue.prototype.$jweixin = new Wx();
 ```js
 
   index.afterEach((to) => {
+        const CURRENT_URL_HISTORY = location.href; //注意我的项目使用的history；
+        // const CURRENT_URL_HASH = location.href.split('#')[0]; // hash模式使用这个
+        if (window.__wxjs_is_wkwebview) {
+              // 判断是否在 IOS 环境下，如果是则给 window 全局对象添加一个属性，用来存贮 ios 第一次进入页面的 URL，因为 ios 的 spa 应用，如果IOS的签名的路径不是第一次进入的页面，那么就一定会失败，所以这个路由第一次进入就要储存起来。
+              if (window['entryUrl'] == '' || window['entryUrl'] == undefined) {
+                  // 这里和jweixin.js中getShareAuth方法获取页面url中是同一个
+                  window['entryUrl'] = CURRENT_URL_HISTORY;
+              }
+        }
       // 由于所有的接口都需要登录后传递token，否则会报错，所以我加了一个白名单，白名单里面的路由不会走默认分享，需要在每个页面login完成后再调用一下分享
       // 白名单屏蔽的是  1、进入项目的第一个页面； 2、页面不仅用到了分享功能，还需要用到别的 jssdk 的api，比如说 扫一扫 (scanQRCode) 
       // 由于存在动态路由，屏蔽路由页面不让其分享也是专门写的以下的方法
       let noShareWhite = ['/home', '/openWeiXin', '/hosQuestionnaire/:orderId', '/homeBlank', '/agreementNursing', '/applyResult', '/nursingHome', '/MyAppointment', '/nucleicAcidNav', '/wenjuan/index'];
       if (!to.matched.some(ele => noShareWhite.includes(ele.path))) {
-          const CURRENT_URL_HISTORY = location.href; //注意我的项目使用的history；
-          // const CURRENT_URL_HASH = location.href.split('#')[0]; // hash模式使用这个
           const SHARE_CONFIG = {
               title: '',
               desc: '',
               link: CURRENT_URL_HISTORY, // 要分享的页面地址不允许存在#参数
               imgUrl: '', // 分享出去链接图片
           };
-          if (window.__wxjs_is_wkwebview) {
-              // 判断是否在 IOS 环境下，如果是则给 window 全局对象添加一个属性，用来存贮 ios 第一次进入页面的 URL，因为 ios 的 spa 应用，如果IOS的签名的路径不是第一次进入的页面，那么就一定会失败，所以这个路由第一次进入就要储存起来。
-              if (window['entryUrl'] == '' || window['entryUrl'] == undefined) {
-                  // 这里和jweixin.js中getShareAuth方法获取页面url中是同一个
-                  window['entryUrl'] = CURRENT_URL_HISTORY;
-              }
-          }
           this.$jweixin.deephugShare(SHARE_CONFIG); // 调用分享
       }
   });
