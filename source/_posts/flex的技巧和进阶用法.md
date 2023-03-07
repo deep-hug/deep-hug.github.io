@@ -1,7 +1,7 @@
 ---
 title: flex的技巧和进阶用法
 author: DeepHug
-index_img: /img/wallhaven-e7zogk.jpg
+index_img: /img/flex的技巧和进阶用法.png
 category: 技术
 tags:
   - Fluid

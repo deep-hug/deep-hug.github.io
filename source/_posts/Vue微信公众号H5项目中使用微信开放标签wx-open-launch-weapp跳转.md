@@ -1,7 +1,7 @@
 ---
 title: Vue微信公众号H5项目中使用微信开放标签wx-open-launch-weapp跳转
 author: DeepHug
-index_img: /img/wallhaven-e7zogk.jpg
+index_img: /img/vue项目路由模式为history使用微信jssdky分享总结.png
 category: 前端
 tags:
   - Vue.js 

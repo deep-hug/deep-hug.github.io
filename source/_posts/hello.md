@@ -1,6 +1,7 @@
 ---
 uuid: 6f1af2ca-ad0d-f704-fe1f-7ff098bc67a5
 title: 前端面试必问的JS基础知识——面向对象
+index_img: /img/前端面试必问的JS基础知识——面向对象.png
 date: 2020-10-17 21:06:45
 categories: 技术
 tags: 

@@ -1,7 +1,7 @@
 ---
 title: yarn 安装node-sass 失败处理方案
 author: DeepHug
-index_img: /img/wallhaven-e7zogk.jpg
+index_img: /img/yarn-安装node-sass-失败处理方案.png
 category: 技术
 tags:
   - Fluid

@@ -1,6 +1,8 @@
 ---
 uuid: fb74c9ee-d0c0-d14a-edd2-ec02dc26e7f5
 title: Vue数据双向绑定实现原理
+author: DeepHug
+index_img: /img/Vue数据双向绑定实现原理.png
 date: 2020-09-12 21:06:45
 categories: 技术
 tags: 

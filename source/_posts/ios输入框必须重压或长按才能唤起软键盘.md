@@ -1,7 +1,7 @@
 ---
 title: ios输入框必须重压或长按才能唤起软键盘
 author: DeepHug
-index_img: /img/wallhaven-e7zogk.jpg
+index_img: /img/ios输入框必须重压或长按才能唤起软键盘.png
 category: 技术
 tags:
   - IOS 键盘 软键盘 输入框

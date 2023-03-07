@@ -1,7 +1,7 @@
 ---
 title: 解决git中的冲突
 author: DeepHug
-index_img: /img/wallhaven-e7zogk.jpg
+index_img: /img/解决git中的冲突.png
 category: 技术
 tags:
   - GIT

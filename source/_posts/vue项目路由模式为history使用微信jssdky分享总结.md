@@ -1,7 +1,7 @@
 ---
 title: vue项目路由模式为history使用微信jssdky分享总结
 author: deephug
-index_img: /img/wallhaven-e7zogk.jpg
+index_img: /img/vue项目路由模式为history使用微信jssdky分享总结.png
 category: 技术
 tags:
   - Fluid

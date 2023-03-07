@@ -1,7 +1,8 @@
 ---
 title: VSCode插件
 author: DeepHug
-index_img: /img/wallhaven-e7zogk.jpg
+index_img: /img/Vscode工具解放双手提高开发效率.png
+
 category: 技术
 tags:
   - Fluid

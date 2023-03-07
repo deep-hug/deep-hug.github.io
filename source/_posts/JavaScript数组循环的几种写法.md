@@ -1,6 +1,7 @@
 ---
 uuid: 1c067143-1a4e-6716-ee72-035a03de9560
 title: JavaScript数组循环的几种写法
+index_img: /img/JavaScript中关于数组的问题.png
 date: 2020-10-13 21:06:45
 categories: 技术
 tags: 
