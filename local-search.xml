@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>前端小妙招</title>
+    <link href="/2023/03/29/%E5%89%8D%E7%AB%AF%E5%B0%8F%E5%A6%99%E6%8B%9B/"/>
+    <url>/2023/03/29/%E5%89%8D%E7%AB%AF%E5%B0%8F%E5%A6%99%E6%8B%9B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="伪元素动态改变其样式"><a href="#伪元素动态改变其样式" class="headerlink" title="伪元素动态改变其样式"></a>伪元素动态改变其样式</h2><p>我们都用过伪元素，什么::before,::after啊这些等等，但是他们都不会直接在代码里html中生成标签，那么有时我们不行再加dom元素了，明明就用改dom元素的伪元素更简单，如下gif图：</p><div>    <img src="CPT2303291015-1054x60.gif" /></div><p>那个蓝色的进度条就是用动态改变伪元素样式的方式来实现的，那么接下来来看下具体实现方案吧！</p><div>    <img src="1.png" /></div><p>在该dom元素中添加行内样式“–width”,当然我这里是要改变它的宽度，如果你们要变颜色啊啥的，自己根据需要起名字</p><p>然后在css中：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css"><br><span class="hljs-selector-class">.box</span><span class="hljs-selector-pseudo">::after</span> &#123;<br>    <span class="hljs-attribute">content</span>: <span class="hljs-string">&#x27;&#x27;</span>;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-built_in">var</span>(--width);<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">2px</span>;<br>    <span class="hljs-attribute">background</span>: <span class="hljs-number">#00c1de</span>;<br>    <span class="hljs-attribute">position</span>: absolute;<br>    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;<br>    <span class="hljs-attribute">transition</span>: .<span class="hljs-number">2s</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure><p>对伪元素使用 var(–width)这种方式，就可以动态改变其属性啦~</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术 VUE CSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Fluid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>pdf.js使用全教程</title>
     <link href="/2023/03/28/pdf-js%E4%BD%BF%E7%94%A8%E5%85%A8%E6%95%99%E7%A8%8B/"/>
     <url>/2023/03/28/pdf-js%E4%BD%BF%E7%94%A8%E5%85%A8%E6%95%99%E7%A8%8B/</url>
@@ -13,7 +38,7 @@
     
     <categories>
       
-      <category>技术</category>
+      <category>技术 PDFJS</category>
       
     </categories>
     
