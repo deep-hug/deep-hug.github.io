@@ -1,11 +1,11 @@
 ---
 title: pdf.js使用全教程
 author: DeepHug
-index_img: /img/wallhaven-e7zogk.jpg
-category: 技术
+index_img: /img/pdf-js使用全教程.png
+category: 技术 PDFJS
 tags:
   - Fluid
-excerpt: 简介。。。
+excerpt: PDFjs似乎是一个完美的解决方案，号称兼容各种浏览器，快速且高效，界面按钮可以配置，而且也比原生iframe框架好看一些，但是一轮的使用下来，确确实实躺了不少的坑，特此记录一下全过程，希望以后使用的时候注意一点
 date: 2023-03-28 16:59:35
 ---
 
