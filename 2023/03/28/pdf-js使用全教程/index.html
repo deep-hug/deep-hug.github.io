@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="简介。。。">
+  <meta name="author" content="DeepHug">
+  <meta name="keywords" content="">
+  
+  <title>pdf.js使用全教程 - DeepHug&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"deep-hug.github.io","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/wallhaven-e7zogk.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="pdf.js使用全教程">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-03-28 16:59" pubdate>
+        2023年3月28日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">pdf.js使用全教程</h1>
+            
+            <div class="markdown-body">
+              <p>项目有需求要预览pdf，一开始是使用了iframe标签进行预览，后面发现效果并不理想，加载速度慢，自定义按钮难，最重要的是IE兼容太差!</p>
+<p>PDFjs似乎是一个完美的解决方案，号称兼容各种浏览器，快速且高效，界面按钮可以配置，而且也比原生iframe框架好看一些，但是一轮的使用下来，确确实实躺了不少的坑，特此记录一下全过程，希望以后使用的时候注意一点，</p>
+<p>开头先罗列一下一轮的使用下来遇到的问题:</p>
+<p>1，跨域报错，</p>
+<p>2，不支持预览base64格式pdf文件流</p>
+<p>3，源码中使用了let const 导致老项目不兼容</p>
+<p>4，兼容base64后，谷歌正常预览pdf文件，ie报错，</p>
+<hr>
+<p>先去 PDF.js<a target="_blank" rel="noopener" href="https://mozilla.github.io/pdf.js/">官方文档</a></p>
+<div>
+    <img src="1.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<div>
+    <img src="2.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+
+<p>我们只需要构建后的这些文件(其他的直接删除)，</p>
+<p><strong>踩坑1</strong>:这里就有一些坑了，引入项目使用报错，为了找这个问题，我还花了半天的时间…发现pdf.js里面用的声明变量的是es6 let const 由于负责的项目是比较老的项目了 不支持es6语法，于是<strong>全局修改了所有的let const为var</strong>，新项目的话，这一步可以忽略</p>
+<div>
+    <img src="3.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>把这个文件夹直接当成一个组件 放到自己的项目中，嫌麻烦直接，网盘下载构建完成的dpf.js</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/13i-CQxBrONytaZJaQk6v3w">https://pan.baidu.com/s/13i-CQxBrONytaZJaQk6v3w</a><br>提取码：o35m<br>使用方法很简单，PDF.js接收一个file参数 在iframe标签 src属性 /viewer.html?file=”url”进行使用     url可以是<strong>pdf文件</strong>，可以是**pdf的文件地址(流)**，</p>
+<p>文件地址，直接使用没什么好说的，直接上代码，这里也有一个需要注意的点，就是url如果包含中文，需要转码，我们尽量进行转码，pdf会自动解码，这样靠谱一点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><br><span class="hljs-keyword">var</span> downloadUrl = baseUrl + <span class="hljs-string">&#x27;xxx/接口地址?token=&#x27;</span> + <span class="hljs-built_in">this</span>.token + <span class="hljs-string">&#x27;&amp;filePath=&#x27;</span>+paymentFiles[i].FILE_PATH+<span class="hljs-string">&#x27;&amp;fileName=&#x27;</span>+paymentFiles[i].FILE_NAME;<br><span class="hljs-comment">//由于地址需要传文件名字和路径 文件名字包含中文，所以需要转码</span><br><span class="hljs-keyword">var</span> url = <span class="hljs-built_in">encodeURIComponent</span>(downloadUrl); <span class="hljs-comment">//获取pdf预览地址</span><br><span class="hljs-comment">//把文件流地址天津到file参数中</span><br>url = <span class="hljs-string">&quot;/libs/DPFjs/web/viewer.html?file=&quot;</span> + url;<br><span class="hljs-comment">//把dom添加到页面中，打开页面即可显示</span><br>accountingArchivesQuery_ViewHTML+= <span class="hljs-string">&#x27;&lt;iframe id=&quot;imgStyle_pdf&quot; style=&quot;width:100%;height:100%;min-height:490px&quot; src=&quot;&#x27;</span>+url+<span class="hljs-string">&#x27;&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&#x27;</span>;<br><br></code></pre></td></tr></table></figure>
+
+<p>把dom添加到页面中，打开页面就可以看到预览了</p>
+<div>
+    <img src="4.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>如果不进行转码就会出现以下错误</p>
+<div>
+    <img src="5.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>原因是中文会导致url解析时乱码</p>
+<div>
+    <img src="9.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<div>
+    <img src="10.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+
+<p><strong>踩坑2</strong>:把文件地址赋值给file，打开浏览器跨域报错.这个的原因是因为viewer.js中有跨域判断的代码注释掉就好了</p>
+<div>
+    <img src="6.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p><strong>但是有一些场景后台给我返回的数据是base64格式，如果是base64数据的pdf又如何处理呢?直接使用是不ok的，pdf不支持base64，继续折腾</strong></p>
+<p><strong>踩坑3</strong>PDF.js默认不支持pdf base64格式数据的预览.解决方法修改源码 让pdf.js支持base64位数据，但是这里有一个大坑(<strong>IE不兼容…</strong>)，不知道各位使用之后有没有同样问题，</p>
+<p>[RFC2045]中有规定：Base64一行不能超过76字符，超过则添加回车换行符。因此需要把base64字段中的换行符，回车符给去掉。且需要转换成pdf.js能直接解析的Uint8Array类型</p>
+<p>在viewer.html中引入viewer.js之前添加以下代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><br>&lt;script type=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;<br>  <span class="hljs-keyword">var</span> DEFAULT_URL = <span class="hljs-string">&quot;&quot;</span>;<br>  <span class="hljs-keyword">var</span> pdfUrl = <span class="hljs-built_in">document</span>.location.search.substring(<span class="hljs-number">1</span>);<br>  <span class="hljs-keyword">if</span>(<span class="hljs-literal">null</span> == pdfUrl || <span class="hljs-string">&quot;&quot;</span> == pdfUrl)&#123;<br>      <span class="hljs-keyword">var</span> BASE64_MARKER = <span class="hljs-string">&#x27;;base64，&#x27;</span>;<span class="hljs-comment">//声明文件流编码格式</span><br>      <span class="hljs-keyword">var</span> preFileId = <span class="hljs-string">&quot;&quot;</span>;<br>      <span class="hljs-keyword">var</span> pdfAsDataUri = sessionStorage.getItem(<span class="hljs-string">&quot;_imgUrl&quot;</span>);<span class="hljs-comment">//这里就是pdf文件的base64码，我是通过session传递base64的</span><br>      <span class="hljs-keyword">var</span> pdfAsArray = convertDataURIToBinary(pdfAsDataUri);<br>      DEFAULT_URL = pdfAsArray;<br>      <span class="hljs-comment">//编码转换</span><br>      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertDataURIToBinary</span>(<span class="hljs-params">dataURI</span>) </span>&#123;<br>          <span class="hljs-comment">//[RFC2045]中有规定：Base64一行不能超过76字符，超过则添加回车换行符。因此需要把base64字段中的换行符，回车符给去掉。</span><br>          <span class="hljs-keyword">var</span> base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;<br>          <span class="hljs-keyword">var</span> newUrl = dataURI.substring(base64Index).replace(<span class="hljs-regexp">/[\n\r]/g</span>，<span class="hljs-string">&#x27;&#x27;</span>);<br>          <span class="hljs-keyword">var</span> raw = <span class="hljs-built_in">window</span>.atob(newUrl);<span class="hljs-comment">//这个方法在ie内核下无法正常解析。</span><br>          <span class="hljs-keyword">var</span> rawLength = raw.length;<br>          <span class="hljs-comment">//转换成pdf.js能直接解析的Uint8Array类型</span><br>          <span class="hljs-keyword">var</span> array = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">ArrayBuffer</span>(rawLength));<br>          <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; rawLength; i++) &#123;<br>              array[i] = raw.charCodeAt(i) &amp; <span class="hljs-number">0xff</span>;<br>          &#125;<br>          <span class="hljs-keyword">return</span> array;<br>      &#125;<br>  &#125;<br>&lt;/script&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p>修改viewer.js中 defaultUrl 的 value 为 DEFAULT_URL</p>
+<div>
+    <img src="7.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>在页面中使用 把请求回来的base64数据存储到本地 sessionStorage 打开/viewer.html 自动获取本地数据进行预览</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><br><span class="hljs-keyword">if</span>(fileList[i].source == <span class="hljs-string">&#x27;pdf&#x27;</span>)&#123;<br>  <span class="hljs-comment">//使用pdf.js 预览base64格式         </span><br>  sessionStorage.setItem(<span class="hljs-string">&#x27;_imgUrl&#x27;</span>，<span class="hljs-string">&quot;data:application/pdf;base64，&quot;</span>+fileList[i].fileBase64);<br>  imageHTML = <span class="hljs-string">&#x27;&lt;iframe src=&quot;/libs/DPFjs/web/viewer.html&quot; class=&quot;imgStyle_pdf&quot; </span><br><span class="hljs-string">  frameborder=&quot;0&quot; scrolling=&quot;no&quot; name=&quot;发票图片&quot; &gt;&lt;/iframe&gt;&#x27;</span>;<br>  preview_div.append(imageHTML)<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>谷歌正常预览，ie报错!</p>
+<div>
+    <img src="4.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<div>
+    <img src="5.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>打印看一下，分析原因可能是atob(newUrl);//这个方法在ie内核下可能无法正常解析。</p>
+<div>
+    <img src="8.png" srcset="/img/loading.gif" lazyload />
+</div>
+
+<p>贯彻一把唆的原则.<strong>直接把base64流，还原成pdf</strong>，<strong>谷歌预览正常ie预览正常!!!</strong></p>
+<p>解决方案:把pdf base64流转pdf 前提是原本就是pdf 且pdf.js只能预览pdf 以下代码添加到后台接口返回回调</p>
+<h4 id="base64格式的pdf，最终解决方案"><a href="#base64格式的pdf，最终解决方案" class="headerlink" title="base64格式的pdf，最终解决方案"></a>base64格式的pdf，最终解决方案</h4><pre><code class="js">
+var base = res.pdfValue;//要传入的base64数据
+var bstr = atob(base);
+var n = bstr.length;
+var u8arr = new Uint8Array(n);
+while (n--) &#123;u8arr[n] = bstr.charCodeAt(n);&#125;
+//确定解析格式，转换成pdf 可能可以变成img，但没有深入研究
+var blob = new Blob([u8arr]， &#123;type: &quot;application/pdf;chartset=UTF-8&quot;&#125;);
+var url = window.URL.createObjectURL(blob);
+//使用pdf.js 预览
+console.log(url， &quot;url&quot;);
+var add = &quot;../../assets/static/pdfjs/web/viewer.html?file=&quot; + url;
+let imageHTML = &quot;&lt;iframe id=\&quot;imgStyle_pdf\&quot; class=\&quot;imgStyle_pdf\&quot; style=\&quot;width:100%;height:100%;min-height:100vh;\&quot; src=\&quot;&quot;+add+&quot;\&quot; scrolling=\&quot;no\&quot; frameborder=\&quot;0\&quot;&gt;&lt;/iframe&gt;&quot;;
+document.querySelector(&quot;#preview-div&quot;).innerHTML = imageHTML;
+</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Fluid/">Fluid</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/01/03/yarn-%E5%AE%89%E8%A3%85node-sass-%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/">
+                        <span class="hidden-mobile">yarn 安装node-sass 失败处理方案</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
